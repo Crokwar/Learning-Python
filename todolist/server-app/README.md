@@ -1,1 +1,9 @@
-#This project contains the code for the to-do list server.
+#Server - Todolist
+
+##Instalation
+
+Install dependencies using:
+
+'''
+pip install -r requirements.txt
+'''
