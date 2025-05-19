@@ -1,39 +1,63 @@
+import './styles/Reservations.css'
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ReservationList from './components/ReservationList';
+import ReservationForm from './components/ReservationForm';
 
 function App() {
-  const [users, setUsers] = useState([])
+
+  const [ reservations, setReservations ] = useState([]);
+  const [ editing, setEditing ] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/users')
+    fetch('http://localhost:5000/reservations')
     .then((res) => res.json())
-    .then(data => setUsers(data.users))
+    .then((data) => setReservations(data))
+    .catch((err) => console.error(err));
   }, []);
+
+  const addReservation = (newData) => {
+    fetch('http://localhost:5000/reservations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newData),
+    })
+    .then(res => res.json())
+    .then(data => setReservations([...reservations, data]));
+  }
+
+  const updateReservation = (updateData) => {
+    fetch(`http://localhost:5000/reservations/${updateData.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updateData),
+    })
+    .then(res => res.json())
+    .then(data => {
+      setReservations(reservations.map(r => r.id === data.id ? data : r));
+      setEditing(null);
+    });
+  }
+
+  const deleteReservation = (id) => {
+    fetch(`http://localhost:5000/reservations/${id}`, {method: 'DELETE'})
+    .then(() => setReservations(reservations.filter(r => r.id !== id )));
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite with React + Python with Flask</h1>
-      <div className="card">
-        <h2>Users</h2>
-        {users.map((user) => (
-          <p key={user.id}>
-            {user.name}
-          </p>
-        ))}
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="container">
+      <h1>Reservations</h1>
+      <ReservationForm
+        onSubmit={editing ? updateReservation : addReservation}
+        initialData={editing}
+        setEditing={setEditing}
+      />
+      <ReservationList
+        reservations={reservations}
+        onDelete={deleteReservation}
+        onEdit={setEditing}
+      />
+    </div>
     </>
   )
 }
