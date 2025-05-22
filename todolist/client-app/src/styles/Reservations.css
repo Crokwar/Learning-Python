@@ -5,7 +5,7 @@
   font-family: Arial, sans-serif;
 }
 
-.container h1 {
+.container h2 {
   text-align: center;
 }
 
@@ -44,3 +44,11 @@
   margin-left: 0.1rem;
   cursor: pointer;
 }
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 2px;
+  display: block;
+}
+
