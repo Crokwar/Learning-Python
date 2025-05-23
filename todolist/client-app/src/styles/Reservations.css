@@ -1,31 +1,9 @@
-.container {
+
+.list {
   max-width: 800px;
   margin: auto;
   padding: 1rem;
   font-family: Arial, sans-serif;
-}
-
-.container h2 {
-  text-align: center;
-}
-
-.form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.form input {
-  padding: 0.5rem;
-  flex: 1 1 200px;
-}
-
-.form button {
-  padding: 0.5rem 1rem;
-}
-
-.list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -50,5 +28,22 @@
   font-size: 0.85rem;
   margin-top: 2px;
   display: block;
+}
+
+.message {
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.message.success { color: green; }
+.message.error { color: red; }
+.message.info { color: blue; }
+
+.loading {
+  font-style: italic;
+  color: gray;
 }
 
