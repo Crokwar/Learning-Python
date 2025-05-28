@@ -1,0 +1,75 @@
+.reservation-table-container {
+  overflow-x: auto;
+  margin: 2rem auto;
+  max-width: 870px;
+}
+
+.reservation-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.reservation-table th,
+.reservation-table td {
+  border: 2px solid black;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.reservation-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.time-cell div {
+  line-height: 1.4;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.status-badge.pending {
+  background-color: yellow;
+  border: 2px solid black;
+  color: black;
+  text-shadow:
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+}
+
+.status-badge.in {
+  background-color: dodgerblue;
+  border: 2px solid black;
+  color: black;
+  text-shadow:
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+}
+
+.status-badge.approved {
+  background-color: lightgreen;
+  color: black;
+}
+
+.status-badge.canceled {
+  background-color: lightcoral;
+  color: white;
+}
+
+.action-buttons button {
+  margin: 0 5px;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
