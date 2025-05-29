@@ -1,46 +1,33 @@
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 1rem;
-  font-family: Arial, sans-serif;
-}
-
-.container h1 {
+.message {
+  padding: 10px 16px;
+  margin: 12px auto;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
   text-align: center;
+  max-width: 600px;
+  border: 2px solid transparent;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
 }
 
-.form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+/* Colores específicos según tipo */
+.message.success {
+  color: green;
+  border-color: #b2f2bb;
+  background-color: #e6ffe6;
 }
 
-.form input {
-  padding: 0.5rem;
-  flex: 1 1 200px;
+.message.error {
+  color: red;
+  border-color: #f5c2c7;
+  background-color: #ffe6e6;
 }
 
-.form button {
-  padding: 0.5rem 1rem;
+.message.info {
+  color: blue;
+  border-color: #a0c4ff;
+  background-color: #e0f0ff;
 }
 
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid #ccc;
-  padding: 0.75rem;
-  border-radius: 5px;
-}
-
-.actions button {
-  margin-left: 0.1rem;
-  cursor: pointer;
-}
